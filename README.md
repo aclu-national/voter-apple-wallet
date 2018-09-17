@@ -29,7 +29,7 @@ To adjust the contents of the pass, edit `content.yaml`.
 ## Usage
 
 ```
-$ node pass.pkpass
+$ node pkpass.js
 ```
 
 You that will generate a new file called `pass.pkpass` that you can drag and drop onto the iOS Simulator app.
