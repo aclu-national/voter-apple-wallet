@@ -1,0 +1,18 @@
+locations:
+    - latitude: 40.7035489
+      longitude: -74.0116148
+
+primary:
+    - Hello world
+
+secondary:
+    - label:
+        Secondary text
+    - label:
+        Only one line allowed
+
+auxiliary:
+    - label:
+        Auxiliary text
+    - label:
+        Also only one line

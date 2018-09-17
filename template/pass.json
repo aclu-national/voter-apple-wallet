@@ -1,0 +1,16 @@
+{
+	"formatVersion": 1,
+	"passTypeIdentifier": "pass.org.phiffer.demo",
+	"serialNumber": "1",
+	"teamIdentifier": "DXZA2GUF94",
+	"organizationName": "ACLU",
+	"description": "ACLU Voter",
+	"logoText": "ACLU",
+	"foregroundColor": "rgb(0, 0, 0)",
+	"backgroundColor": "rgb(255, 255, 255)",
+	"eventTicket": {
+		"primaryFields": [],
+		"secondaryFields": [],
+		"auxiliaryFields": []
+	}
+}

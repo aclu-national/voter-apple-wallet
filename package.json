@@ -1,0 +1,15 @@
+{
+  "name": "voter-apple-wallet",
+  "version": "0.0.1",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Phiffer <dphiffer@aclu.org>",
+  "license": "MIT",
+  "dependencies": {
+    "@destinationstransfers/passkit": "git+https://git@github.com/destinationstransfers/passkit.git",
+    "yaml": "^1.0.0-rc.8"
+  }
+}
