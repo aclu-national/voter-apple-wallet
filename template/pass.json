@@ -3,9 +3,9 @@
 	"passTypeIdentifier": "pass.org.phiffer.demo",
 	"serialNumber": "1",
 	"teamIdentifier": "DXZA2GUF94",
-	"organizationName": "ACLU",
-	"description": "ACLU Voter",
-	"logoText": "ACLU",
+	"organizationName": "ACLU Voter",
+	"description": "Remember to Vote Nov 6",
+	"logoText": "Remember to Vote Nov 6",
 	"foregroundColor": "rgb(0, 0, 0)",
 	"backgroundColor": "rgb(255, 255, 255)",
 	"eventTicket": {
