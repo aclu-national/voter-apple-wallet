@@ -1,9 +1,19 @@
 secondary:
     - POLLING PLACE ADDRESS:
-        125 Broad St, New York, NY 10004
+        125 Broad St
 
 auxiliary:
     - HOURS:
         6am–9pm
-    - INFO:
+    - Learn More:
         aclu.org/voter
+
+backFields:
+    - Polling Place Address:
+        125 Broad St, New York, NY 10004
+    - Polling Place Hours:
+        6am—9pm
+    - Do I need to bring ID?:
+        No, you don't need to show ID.
+    - If you encounter problems:
+        212-555-1212

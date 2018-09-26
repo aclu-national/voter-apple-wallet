@@ -50,7 +50,18 @@ const { Template } = require('@destinationstransfers/passkit');
 		}
 	}
 
-	pass.fields.relevantDate = "2018-11-06T10:00-04:00";
+	num = 0;
+	if (content.backFields) {
+		for (let item of content.backFields) {
+			num++;
+			for (let key in item) {
+				console.log(`backFields ${key}: ${item[key]}`);
+				pass.backFields.add('backFields' + num, key, item[key]);
+			}
+		}
+	}
+
+	pass.fields.relevantDate = "2018-09-26T10:00-04:00";
 
 	console.log(pass.fields);
 
