@@ -5,9 +5,10 @@
 	"teamIdentifier": "DXZA2GUF94",
 	"organizationName": "ACLU: Remember to Vote Today",
 	"description": "ACLU Voter",
-	"logoText": "Remember to Vote on Nov 6",
-	"foregroundColor": "rgb(0, 0, 0)",
-	"backgroundColor": "rgb(255, 255, 255)",
+	"logoText": "Vote on Nov 6",
+	"foregroundColor": "rgb(255, 255, 255)",
+	"labelColor": "rgb(255, 255, 255)",
+	"backgroundColor": "rgb(0, 85, 170)",
 	"eventTicket": {
 		"primaryFields": [],
 		"secondaryFields": [],
