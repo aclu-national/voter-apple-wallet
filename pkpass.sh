@@ -1,5 +1,6 @@
 #!/bin/bash
 
+node=`which node`
 base_dir="/usr/local/aclu/voter-apple-wallet"
 
 if [ $# -lt 4 ] ; then
@@ -20,7 +21,7 @@ if [ ! -f "$base_dir/passes/$hash/pass.pkpass" ] ; then
 	dir="$base_dir/passes/$hash"
 	cp -R "$base_dir/template" "$dir"
 
-	/usr/local/bin/node "$base_dir/pkpass.js" "$hash" "$address" "$hours" "$lat" "$lng"
+	$node "$base_dir/pkpass.js" "$hash" "$address" "$hours" "$lat" "$lng"
 
 fi
 
