@@ -6,21 +6,22 @@ const { Template } = require('@destinationstransfers/passkit');
 
 	try {
 
-		const template = await Template.load('./template', 'safeandfree');
+		if (process.argv.length < 7) {
+			console.log('Usage: node pkpass.js [hash] [address] [hours] [lat] [lng]');
+			process.exit(1);
+		}
+
+		const hash = process.argv[2];
+		const address = process.argv[3];
+		const hours = process.argv[4];
+		const lat = process.argv[5];
+		const lng = process.argv[6];
+
+		const template = await Template.load(`./passes/${hash}`, 'safeandfree');
 		var pass = template.createPass({
 			serialNumber: "1",
 			description: "ACLU Voter"
 		});
-
-		if (process.argv.length < 6) {
-			console.log('Usage: node pkpass.js [address] [hours] [lat] [lng]');
-			process.exit(1);
-		}
-
-		const address = process.argv[2];
-		const hours = process.argv[3];
-		const lat = process.argv[4];
-		const lng = process.argv[5];
 
 		const content = {
 			secondary: [
@@ -37,8 +38,8 @@ const { Template } = require('@destinationstransfers/passkit');
 		};
 
 		if (content.locations) {
-			console.log('Adding locations:');
-			console.log(content.locations);
+			//console.log('Adding locations:');
+			//console.log(content.locations);
 			pass.fields.locations = content.locations;
 		}
 
@@ -46,7 +47,7 @@ const { Template } = require('@destinationstransfers/passkit');
 		if (content.primary) {
 			for (let item of content.primary) {
 				num++;
-				console.log(`primary: ${item}`);
+				//console.log(`primary: ${item}`);
 				pass.primaryFields.add('primary' + num, 'this is ignored', item);
 			}
 		}
@@ -56,7 +57,7 @@ const { Template } = require('@destinationstransfers/passkit');
 			for (let item of content.secondary) {
 				num++;
 				for (let key in item) {
-					console.log(`secondary ${key}: ${item[key]}`);
+					//console.log(`secondary ${key}: ${item[key]}`);
 					pass.secondaryFields.add('secondary' + num, key, item[key]);
 				}
 			}
@@ -67,7 +68,7 @@ const { Template } = require('@destinationstransfers/passkit');
 			for (let item of content.auxiliary) {
 				num++;
 				for (let key in item) {
-					console.log(`auxiliary ${key}: ${item[key]}`);
+					//console.log(`auxiliary ${key}: ${item[key]}`);
 					pass.auxiliaryFields.add('auxiliary' + num, key, item[key]);
 				}
 			}
@@ -78,7 +79,7 @@ const { Template } = require('@destinationstransfers/passkit');
 			for (let item of content.backFields) {
 				num++;
 				for (let key in item) {
-					console.log(`backFields ${key}: ${item[key]}`);
+					//console.log(`backFields ${key}: ${item[key]}`);
 					pass.backFields.add('backFields' + num, key, item[key]);
 				}
 			}
@@ -86,11 +87,11 @@ const { Template } = require('@destinationstransfers/passkit');
 
 		pass.fields.relevantDate = "2018-11-06T10:00-04:00";
 
-		let file = fs.createWriteStream("pass.pkpass");
-		pass.on("error", function(error) {
-			console.error(error);
+		let file = fs.createWriteStream(`./passes/${hash}/pass.pkpass`);
+		pass.on("error", function(err) {
+			console.log(err.stack);
 			process.exit(1);
-		})
+		});
 		pass.pipe(file);
 
 	} catch(err) {

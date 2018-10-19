@@ -2,3 +2,4 @@
 .DS_Store
 *.pkpass
 /template/*.pem
+/passes/*
