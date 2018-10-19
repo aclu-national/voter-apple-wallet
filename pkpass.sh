@@ -13,6 +13,7 @@ lat=$3
 lng=$4
 
 hash=`echo -n "$address" | openssl dgst -sha1 -hmac "key"`
+hash=${hash#*= }
 
 if [ ! -f "$base_dir/passes/$hash/pass.pkpass" ] ; then
 
