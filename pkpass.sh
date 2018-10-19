@@ -12,7 +12,7 @@ hours=$2
 lat=$3
 lng=$4
 
-hash=`echo -n "$address" | openssl dgst -sha1 -hmac "key"`
+hash=`echo -n "$address" | openssl sha1`
 hash=${hash#*= }
 
 if [ ! -f "$base_dir/passes/$hash/pass.pkpass" ] ; then
@@ -20,7 +20,7 @@ if [ ! -f "$base_dir/passes/$hash/pass.pkpass" ] ; then
 	dir="$base_dir/passes/$hash"
 	cp -R "$base_dir/template" "$dir"
 
-	node pkpass.js "$hash" "$address" "$hours" "$lat" "$lng"
+	/usr/local/bin/node "$base_dir/pkpass.js" "$hash" "$address" "$hours" "$lat" "$lng"
 
 fi
 

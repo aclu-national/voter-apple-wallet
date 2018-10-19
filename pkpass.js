@@ -1,6 +1,7 @@
 const fs = require('fs');
 const yaml = require('yaml').default;
 const { Template } = require('@destinationstransfers/passkit');
+const base_dir = '/usr/local/aclu/voter-apple-wallet';
 
 (async () => {
 
@@ -17,7 +18,7 @@ const { Template } = require('@destinationstransfers/passkit');
 		const lat = process.argv[5];
 		const lng = process.argv[6];
 
-		const template = await Template.load(`./passes/${hash}`, 'safeandfree');
+		const template = await Template.load(`${base_dir}/passes/${hash}`, 'safeandfree');
 		var pass = template.createPass({
 			serialNumber: "1",
 			description: "ACLU Voter"
@@ -87,7 +88,7 @@ const { Template } = require('@destinationstransfers/passkit');
 
 		pass.fields.relevantDate = "2018-11-06T10:00-04:00";
 
-		let file = fs.createWriteStream(`./passes/${hash}/pass.pkpass`);
+		let file = fs.createWriteStream(`${base_dir}/passes/${hash}/pass.pkpass`);
 		pass.on("error", function(err) {
 			console.log(err.stack);
 			process.exit(1);
