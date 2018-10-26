@@ -29,8 +29,7 @@ const base_dir = '/usr/local/aclu/voter-apple-wallet';
 				{ 'Polling Place Address': address }
 			],
 			auxiliary: [
-				{ 'Hours': hours },
-				{ 'Learn More': 'aclu.org/voter' }
+				{ 'Hours': hours }
 			],
 			backFields: [
 				{ 'Polling Place Address': address },
