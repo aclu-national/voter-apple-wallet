@@ -11,7 +11,7 @@ pin="$base_dir/img/pin.png"
 pin2x="$base_dir/img/pin@2x.png"
 
 if [ $# -lt 4 ] ; then
-	echo "Usage pkpass.sh [address] [hours] [lat] [lng]"
+	echo "Usage: pkpass.sh [address] [hours] [lat] [lng]"
 	exit 1
 fi
 
